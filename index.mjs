@@ -12,10 +12,10 @@ const response = await ollama.chat({
     model: 'gemma3:270m',
     messages: [{
         role: 'user', 
-        content: `Tell me about Nigeria`
+        content: `Tell me about the UK`
     }],
-    format: 'json',
+    format: zodToJsonSchema(Country, { target: 'openApi3' }),
 });
 
-const country = Country.parse(JSON.parse(response.message.content));
-console.log(country);
+
+console.log(response.message.content);
