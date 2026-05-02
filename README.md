@@ -89,4 +89,6 @@ This project was a learning experiment and hit some real constraints worth docum
 - **Structured output compliance is inconsistent** — smaller models don't reliably respect the JSON schema even when explicitly instructed
 - **Quantised models don't save as much RAM as expected** — `gemma3:1b-it-qat` and `gemma3:270m` had near-identical RAM footprints at runtime
 
+![gemma3:1b-it-qat giving the desired output](/assets/Desired-Output.png)
+
 **Recommended minimum model:** `gemma3:4b` for meaningful code analysis results.
