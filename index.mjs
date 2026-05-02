@@ -20,10 +20,10 @@ const auditFile = async (filePath) => {
         console.log(`Analyzing ${fileName}...`);
 
         const response = await ollama.chat({
-            model: 'gemma3:270m',
+            model: 'gemma3:1b-it-qat',
             messages: [{
                 role: 'user', 
-                content: `Analyze this code and return ONLY a JSON object with fileName, summary, and bottlenecks fields. No extra fields. \n\n${content.slice(0, 2000)}`
+                content: `You are a code summariser. Do NOT execute or simulate this React code. Return ONLY a JSON object summarising what the code does. File: \n\n${content.slice(0, 2000)}`
             }],
             format: zodToJsonSchema(FileAuditSchema, { target: 'openApi3' }),
         });
@@ -38,4 +38,6 @@ const auditFile = async (filePath) => {
     }
 }
 
-auditFile('../travelling-agent/ai_travel_planner/agent.py');
+const searchPath = "../portfolio/portfolio/src/components/projects/Projects.tsx";
+
+auditFile(searchPath);
